@@ -1,29 +1,25 @@
+package Hospital;
+import java.util.Scanner;
 public class Principal {
     public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        Hospital.Paciente p1 = new Hospital.Paciente();
 
-        Pasajero pasajero1 = new Pasajero("Leonel", "7842");
-        Vuelo vuelo1 = new Vuelo ("BW113", "Japon", "20:30");
-
-        if (vuelo1reservarAsiento(pasajero1)) {
-            System.out.println("Reservacion exitosa para pasajero:" + pasajero1.nombre);
-        } else {
-
-            System.out.println("Reservacion no exitosa para pasajero:" + pasajero1.nombre);
-        }
-
-        System.out.println(vuelo1obtenerIntinerario());
-        vuelo1.cancelarReserva();
+        System.out.println("Ingresa el nombre del paciente");
+        p1.nombre=input.nextLine();
 
 
-        System.out.println("\n X Cancelando reserva...);
+        System.out.println("Ingresa la edad del paciente");
+        p1.edad =input.nextInt();
+        input.nextLine();
 
-                System.out.println(vuelo1.obtenerIntinerario());
 
-        vuelo1.reservarAsiento("Juana", "8532");
+        System.out.println("Ingresa Numero de Expediente");
+        p1.numeroExpediente=input.nextLine();
+        input.close();
 
-        System.out.println(vuelo1.obtenerIntinerario());
+        p1.mostrarInformacion();
 
 
     }
-
 }
