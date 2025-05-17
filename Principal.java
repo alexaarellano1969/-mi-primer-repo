@@ -1,25 +1,26 @@
-package Hospital;
+//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
+// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 import java.util.Scanner;
 public class Principal {
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        Hospital.Paciente p1 = new Hospital.Paciente();
+        SimuladorFarmacia Medicamentos = new SimuladorFarmacia();
+        Scanner Scanner = new Scanner(System.in);
 
-        System.out.println("Ingresa el nombre del paciente");
-        p1.nombre=input.nextLine();
-
-
-        System.out.println("Ingresa la edad del paciente");
-        p1.edad =input.nextInt();
-        input.nextLine();
-
-
-        System.out.println("Ingresa Numero de Expediente");
-        p1.numeroExpediente=input.nextLine();
-        input.close();
-
-        p1.mostrarInformacion();
+        System.out.println("Nombre del medicamento: ");
+        Medicamentos.medicamento = Scanner.nextLine();
+        System.out.println("Precio del medicamento: ");
+        Medicamentos.precio = Scanner.nextDouble();
+        System.out.println("Cantidad: ");
+        Medicamentos.piezas = Scanner.nextInt();
 
 
+        Medicamentos.totalsindescuento = Medicamentos.precio * Medicamentos.piezas;
+        Medicamentos.descuento = Medicamentos.totalsindescuento * .15;
+        Medicamentos.total = (Medicamentos.totalsindescuento <= 500) ? Medicamentos.totalsindescuento : Medicamentos.totalsindescuento - Medicamentos.descuento;
+        Medicamentos.aplicardescuento = (Medicamentos.totalsindescuento <= 500) ? false : true;
+        Medicamentos.mostrarInformacion();
+
+        Medicamentos.mostrarInformacion();
     }
+
 }
